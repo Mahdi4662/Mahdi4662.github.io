@@ -1,880 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- كود AdSense لإثبات الملكية -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716562783659949"
-     crossorigin="anonymous"></script>
-
-    <title>تطبيق تدريب كرة القدم الذكي</title>
-</head>
-<body>
-    <!-- محتوى الموقع هنا -->
-</body>
-</html>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
-        
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: #f8fafc;
-        }
-        
-        .position-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .position-btn:hover {
-            transform: translateY(-3px);
-        }
-        
-        .exercise-card {
-            transition: all 0.3s ease;
-        }
-        
-        .exercise-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
-        }
-    </style>
-</head>
-<body class="min-h-screen bg-gray-50">
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
-        <div class="container mx-auto px-4 py-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <i class="fas fa-futbol text-3xl mr-3"></i>
-                    <h1 class="text-2xl font-bold">مدرب كرة القدم الذكي</h1>
-                </div>
-                <div class="flex items-center space-x-4 space-x-reverse">
-                    <button id="profileBtn" class="bg-white text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-blue-50 transition">
-                        <i class="fas fa-user mr-2"></i>الملف الشخصي
-                    </button>
-                    <button id="helpBtn" class="text-white hover:text-blue-200 transition">
-                        <i class="fas fa-question-circle text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- User Info Section -->
-        <section id="userInfoSection" class="bg-white rounded-xl shadow-md p-6 mb-8">
-            <h2 class="text-xl font-bold text-gray-800 mb-6 border-b pb-2">المعلومات الشخصية</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Gender -->
-                <div class="space-y-2">
-                    <label class="block text-gray-700 font-medium">الجنس</label>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <button id="maleBtn" class="gender-btn position-btn bg-blue-100 text-blue-800 px-6 py-3 rounded-lg font-medium flex-1">
-                            <i class="fas fa-mars mr-2"></i> ذكر
-                        </button>
-                        <button id="femaleBtn" class="gender-btn position-btn bg-pink-100 text-pink-800 px-6 py-3 rounded-lg font-medium flex-1">
-                            <i class="fas fa-venus mr-2"></i> أنثى
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Age -->
-                <div class="space-y-2">
-                    <label for="age" class="block text-gray-700 font-medium">العمر</label>
-                    <div class="relative">
-                        <input type="number" id="age" min="10" max="50" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="أدخل عمرك">
-                        <span class="absolute left-3 top-3 text-gray-500">سنة</span>
-                    </div>
-                </div>
-                
-                <!-- Weight -->
-                <div class="space-y-2">
-                    <label for="weight" class="block text-gray-700 font-medium">الوزن</label>
-                    <div class="relative">
-                        <input type="number" id="weight" min="30" max="120" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="أدخل وزنك">
-                        <span class="absolute left-3 top-3 text-gray-500">كجم</span>
-                    </div>
-                </div>
-                
-                <!-- Height -->
-                <div class="space-y-2">
-                    <label for="height" class="block text-gray-700 font-medium">الطول</label>
-                    <div class="relative">
-                        <input type="number" id="height" min="120" max="220" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="أدخل طولك">
-                        <span class="absolute left-3 top-3 text-gray-500">سم</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Position Selection -->
-            <div class="mt-8">
-                <h3 class="text-lg font-bold text-gray-800 mb-4">اختر مركزك في الملعب</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <button data-position="striker" class="position-btn bg-orange-100 text-orange-800 px-4 py-3 rounded-lg font-medium hover:bg-orange-200">
-                        <i class="fas fa-bullseye mr-2"></i> مهاجم
-                    </button>
-                    <button data-position="midfielder" class="position-btn bg-green-100 text-green-800 px-4 py-3 rounded-lg font-medium hover:bg-green-200">
-                        <i class="fas fa-arrows-alt mr-2"></i> وسط
-                    </button>
-                    <button data-position="defender" class="position-btn bg-blue-100 text-blue-800 px-4 py-3 rounded-lg font-medium hover:bg-blue-200">
-                        <i class="fas fa-shield-alt mr-2"></i> مدافع
-                    </button>
-                    <button data-position="goalkeeper" class="position-btn bg-purple-100 text-purple-800 px-4 py-3 rounded-lg font-medium hover:bg-purple-200">
-                        <i class="fas fa-hand-paper mr-2"></i> حارس
-                    </button>
-                </div>
-                
-                <!-- Midfielder Subtypes -->
-                <div id="midfielderTypes" class="hidden mt-4">
-                    <h4 class="text-md font-medium text-gray-700 mb-2">اختر نوع خط الوسط:</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                        <button data-subposition="cm" class="position-btn bg-green-50 text-green-700 px-4 py-2 rounded-lg border border-green-200 hover:bg-green-100">
-                            وسط مركزي (CM)
-                        </button>
-                        <button data-subposition="cmd" class="position-btn bg-green-50 text-green-700 px-4 py-2 rounded-lg border border-green-200 hover:bg-green-100">
-                            وسط دفاعي (CMD)
-                        </button>
-                        <button data-subposition="cma" class="position-btn bg-green-50 text-green-700 px-4 py-2 rounded-lg border border-green-200 hover:bg-green-100">
-                            وسط هجومي (CMA)
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Submit Button -->
-            <div class="mt-8 text-center">
-                <button id="generateBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition transform hover:scale-105">
-                    <i class="fas fa-magic mr-2"></i> توليد تمارين مخصصة
-                </button>
-            </div>
-        </section>
-        
-        <!-- Exercises Section -->
-        <section id="exercisesSection" class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-bold text-gray-800">تمارينك المخصصة اليوم</h2>
-                <div class="text-blue-600 font-medium">
-                    <i class="far fa-calendar-alt mr-2"></i>
-                    <span id="currentDate"></span>
-                </div>
-            </div>
-            
-            <!-- Stats Card -->
-            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8 border border-blue-100">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="text-center">
-                        <div class="text-gray-500 text-sm">مؤشر الكتلة</div>
-                        <div class="text-2xl font-bold text-blue-600" id="bmiValue">--</div>
-                        <div class="text-xs text-gray-500" id="bmiCategory">--</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-gray-500 text-sm">مستوى الصعوبة</div>
-                        <div class="text-2xl font-bold text-orange-500" id="difficultyLevel">--</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-gray-500 text-sm">إجمالي التمارين</div>
-                        <div class="text-2xl font-bold text-green-600" id="totalExercises">--</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-gray-500 text-sm">مدة التدريب</div>
-                        <div class="text-2xl font-bold text-purple-600" id="totalDuration">--</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Exercises List -->
-            <div id="exercisesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Exercises will be dynamically inserted here -->
-            </div>
-            
-            <!-- Rest Time Recommendation -->
-            <div id="restTimeCard" class="hidden mt-8 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
-                <div class="flex">
-                    <div class="flex-shrink-0 text-yellow-500">
-                        <i class="fas fa-bed text-2xl"></i>
-                    </div>
-                    <div class="mr-3">
-                        <h3 class="text-lg font-medium text-yellow-800">نصيحة وقت الراحة</h3>
-                        <div class="mt-1 text-yellow-700">
-                            <p id="restTimeRecommendation">يوصى بأخذ قسط من الراحة لمدة 8 ساعات يومياً للحصول على أفضل نتائج التدريب.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Best Training Time -->
-            <div id="bestTimeCard" class="hidden mt-4 bg-green-50 border-l-4 border-green-400 p-4 rounded-r-lg">
-                <div class="flex">
-                    <div class="flex-shrink-0 text-green-500">
-                        <i class="fas fa-clock text-2xl"></i>
-                    </div>
-                    <div class="mr-3">
-                        <h3 class="text-lg font-medium text-green-800">أفضل وقت للتدريب</h3>
-                        <div class="mt-1 text-green-700">
-                            <p id="bestTimeRecommendation">أفضل وقت للتدريب هو بين الساعة 5-7 مساءً عندما تكون درجة حرارة الجسم في ذروتها.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Position Tips Section -->
-        <section id="positionTipsSection" class="hidden bg-white rounded-xl shadow-md p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">نصائح خاصة بمركزك</h2>
-            <div id="positionTipsContent" class="prose max-w-none">
-                <!-- Tips will be dynamically inserted here -->
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-lg font-bold mb-4">مدرب كرة القدم الذكي</h3>
-                    <p class="text-gray-400">تطبيق ذكي يوفر تمارين مخصصة للاعبي كرة القدم حسب مركزهم في الملعب وخصائصهم البدنية.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">روابط سريعة</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">الرئيسية</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">التمارين</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">النصائح</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">الملف الشخصي</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">تواصل معنا</h3>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-                <p>© 2023 مدرب كرة القدم الذكي. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Set current date
-        const today = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('currentDate').textContent = today.toLocaleDateString('ar-EG', options);
-        
-        // Variables to store user data
-        let userData = {
-            gender: null,
-            age: null,
-            weight: null,
-            height: null,
-            position: null,
-            subPosition: null
-        };
-        
-        // DOM Elements
-        const maleBtn = document.getElementById('maleBtn');
-        const femaleBtn = document.getElementById('femaleBtn');
-        const ageInput = document.getElementById('age');
-        const weightInput = document.getElementById('weight');
-        const heightInput = document.getElementById('height');
-        const positionBtns = document.querySelectorAll('[data-position]');
-        const subPositionBtns = document.querySelectorAll('[data-subposition]');
-        const midfielderTypes = document.getElementById('midfielderTypes');
-        const generateBtn = document.getElementById('generateBtn');
-        const userInfoSection = document.getElementById('userInfoSection');
-        const exercisesSection = document.getElementById('exercisesSection');
-        const exercisesContainer = document.getElementById('exercisesContainer');
-        const positionTipsSection = document.getElementById('positionTipsSection');
-        const positionTipsContent = document.getElementById('positionTipsContent');
-        const bmiValue = document.getElementById('bmiValue');
-        const bmiCategory = document.getElementById('bmiCategory');
-        const difficultyLevel = document.getElementById('difficultyLevel');
-        const totalExercises = document.getElementById('totalExercises');
-        const totalDuration = document.getElementById('totalDuration');
-        const restTimeCard = document.getElementById('restTimeCard');
-        const restTimeRecommendation = document.getElementById('restTimeRecommendation');
-        const bestTimeCard = document.getElementById('bestTimeCard');
-        const bestTimeRecommendation = document.getElementById('bestTimeRecommendation');
-        
-        // Event Listeners
-        maleBtn.addEventListener('click', () => {
-            userData.gender = 'male';
-            maleBtn.classList.add('bg-blue-600', 'text-white');
-            maleBtn.classList.remove('bg-blue-100', 'text-blue-800');
-            femaleBtn.classList.add('bg-pink-100', 'text-pink-800');
-            femaleBtn.classList.remove('bg-pink-600', 'text-white');
-        });
-        
-        femaleBtn.addEventListener('click', () => {
-            userData.gender = 'female';
-            femaleBtn.classList.add('bg-pink-600', 'text-white');
-            femaleBtn.classList.remove('bg-pink-100', 'text-pink-800');
-            maleBtn.classList.add('bg-blue-100', 'text-blue-800');
-            maleBtn.classList.remove('bg-blue-600', 'text-white');
-        });
-        
-        positionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Reset all position buttons
-                positionBtns.forEach(b => {
-                    b.classList.remove('ring-2', 'ring-offset-2');
-                    const color = b.classList.contains('bg-orange-100') ? 'orange' : 
-                                 b.classList.contains('bg-green-100') ? 'green' : 
-                                 b.classList.contains('bg-blue-100') ? 'blue' : 'purple';
-                    b.classList.add(`bg-${color}-100`, `text-${color}-800`);
-                    b.classList.remove(`bg-${color}-600`, 'text-white');
-                });
-                
-                // Highlight selected position
-                const color = btn.classList.contains('bg-orange-100') ? 'orange' : 
-                             btn.classList.contains('bg-green-100') ? 'green' : 
-                             btn.classList.contains('bg-blue-100') ? 'blue' : 'purple';
-                btn.classList.add(`bg-${color}-600`, 'text-white', 'ring-2', `ring-${color}-500`, 'ring-offset-2');
-                btn.classList.remove(`bg-${color}-100`, `text-${color}-800`);
-                
-                userData.position = btn.dataset.position;
-                
-                // Show midfielder subtypes if midfielder is selected
-                if (userData.position === 'midfielder') {
-                    midfielderTypes.classList.remove('hidden');
-                } else {
-                    midfielderTypes.classList.add('hidden');
-                    userData.subPosition = null;
-                    // Reset subposition buttons
-                    subPositionBtns.forEach(b => {
-                        b.classList.remove('bg-green-600', 'text-white');
-                        b.classList.add('bg-green-50', 'text-green-700');
-                    });
-                }
-            });
-        });
-        
-        subPositionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Reset all subposition buttons
-                subPositionBtns.forEach(b => {
-                    b.classList.remove('bg-green-600', 'text-white');
-                    b.classList.add('bg-green-50', 'text-green-700');
-                });
-                
-                // Highlight selected subposition
-                btn.classList.add('bg-green-600', 'text-white');
-                btn.classList.remove('bg-green-50', 'text-green-700');
-                
-                userData.subPosition = btn.dataset.subposition;
-            });
-        });
-        
-        generateBtn.addEventListener('click', () => {
-            // Validate inputs
-            if (!userData.gender) {
-                alert('الرجاء اختيار الجنس');
-                return;
-            }
-            
-            if (!ageInput.value || !weightInput.value || !heightInput.value) {
-                alert('الرجاء إدخال جميع البيانات المطلوبة (العمر، الوزن، الطول)');
-                return;
-            }
-            
-            if (!userData.position) {
-                alert('الرجاء اختيار المركز في الملعب');
-                return;
-            }
-            
-            if (userData.position === 'midfielder' && !userData.subPosition) {
-                alert('الرجاء اختيار نوع خط الوسط');
-                return;
-            }
-            
-            // Store user data
-            userData.age = parseInt(ageInput.value);
-            userData.weight = parseInt(weightInput.value);
-            userData.height = parseInt(heightInput.value);
-            
-            // Generate exercises
-            generateExercises();
-            
-            // Show exercises section
-            exercisesSection.classList.remove('hidden');
-            positionTipsSection.classList.remove('hidden');
-            
-            // Scroll to exercises
-            exercisesSection.scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        // Function to generate exercises based on user data
-        function generateExercises() {
-            // Calculate BMI
-            const heightInMeters = userData.height / 100;
-            const bmi = userData.weight / (heightInMeters * heightInMeters);
-            bmiValue.textContent = bmi.toFixed(1);
-            
-            // Determine BMI category
-            let bmiCat = '';
-            if (bmi < 18.5) {
-                bmiCat = 'نقص في الوزن';
-                bmiCategory.classList.add('text-red-500');
-            } else if (bmi >= 18.5 && bmi < 25) {
-                bmiCat = 'وزن طبيعي';
-                bmiCategory.classList.add('text-green-500');
-            } else if (bmi >= 25 && bmi < 30) {
-                bmiCat = 'زيادة في الوزن';
-                bmiCategory.classList.add('text-yellow-500');
-            } else {
-                bmiCat = 'سمنة';
-                bmiCategory.classList.add('text-red-500');
-            }
-            bmiCategory.textContent = bmiCat;
-            
-            // Determine difficulty level based on age and BMI
-            let difficulty = '';
-            if (userData.age < 16) {
-                difficulty = 'مبتدئ';
-                difficultyLevel.classList.add('text-blue-500');
-            } else if (userData.age >= 16 && userData.age < 20) {
-                difficulty = 'متوسط';
-                difficultyLevel.classList.add('text-green-500');
-            } else if (userData.age >= 20 && userData.age < 25) {
-                difficulty = 'متقدم';
-                difficultyLevel.classList.add('text-orange-500');
-            } else {
-                difficulty = 'محترف';
-                difficultyLevel.classList.add('text-red-500');
-            }
-            difficultyLevel.textContent = difficulty;
-            
-            // Generate position-specific exercises
-            let exercises = [];
-            let totalDurationMinutes = 0;
-            
-            // Common exercises for all positions
-            exercises.push({
-                name: 'الإحماء الديناميكي',
-                description: 'قم بالإحماء لمدة 10 دقائق مع تمارين مثل الجري الخفيف، رفع الركبتين، ركل المؤخرة، والمشي برافعات.',
-                duration: 10,
-                reps: null,
-                icon: 'fa-fire',
-                color: 'red'
-            });
-            
-            // Position-specific exercises
-            if (userData.position === 'striker') {
-                // Striker exercises
-                exercises.push({
-                    name: 'الركض السريع مع تغيير الاتجاه',
-                    description: 'قم بالركض السريع لمسافة 20 متر مع تغيير الاتجاه المفاجئ كل 5 أمتار. كرر 8 مرات مع راحة 30 ثانية بين كل تكرار.',
-                    duration: 15,
-                    reps: 8,
-                    icon: 'fa-bolt',
-                    color: 'yellow'
-                });
-                
-                exercises.push({
-                    name: 'التسديد على المرمى',
-                    description: 'قم بتسديد 20 كرة على المرمى من مسافات وزوايا مختلفة. ركز على الدقة ثم القوة.',
-                    duration: 20,
-                    reps: 20,
-                    icon: 'fa-futbol',
-                    color: 'orange'
-                });
-                
-                exercises.push({
-                    name: 'القفز الرأسي',
-                    description: 'قم بـ 4 مجموعات من 12 قفزة رأسية مع راحة 45 ثانية بين المجموعات. حاول لمس أعلى نقطة ممكنة.',
-                    duration: 10,
-                    reps: '4x12',
-                    icon: 'fa-arrow-up',
-                    color: 'purple'
-                });
-                
-                totalDurationMinutes = 55;
-                
-                // Position tips
-                positionTipsContent.innerHTML = `
-                    <h3 class="text-lg font-bold text-orange-600 mb-2">نصائح للمهاجمين</h3>
-                    <ul class="list-disc mr-5 space-y-2">
-                        <li>ركز على تطوير سرعتك وقدرتك على التحرك بسرعة في المساحات الضيقة.</li>
-                        <li>تدرب على التسديد بكلتا القدمين لزيادة خياراتك الهجومية.</li>
-                        <li>اعمل على توقيت القفز واللعب الجوي لتحسين قدرتك في الكرات العالية.</li>
-                        <li>طور حاسة التمركز وقراءة اللعبة لتوقع تحركات المدافعين.</li>
-                        <li>تدرب على التهديف تحت الضغط وفي المواقف المختلفة.</li>
-                    </ul>
-                `;
-                
-            } else if (userData.position === 'midfielder') {
-                // Midfielder exercises
-                exercises.push({
-                    name: 'الجري لمسافات طويلة',
-                    description: 'قم بالجري المتوسط السرعة لمسافة 400 متر (دورة حول الملعب) مع راحة 1 دقيقة بين كل جولة. كرر 6 مرات.',
-                    duration: 25,
-                    reps: 6,
-                    icon: 'fa-running',
-                    color: 'green'
-                });
-                
-                exercises.push({
-                    name: 'تمريرات سريعة',
-                    description: 'مع شريك، قم بتبادل التمريرات السريعة لمسافة 10-15 متر. ركز على الدقة واللمسة الأولى. 100 تمريرة لكل قدم.',
-                    duration: 15,
-                    reps: 100,
-                    icon: 'fa-exchange-alt',
-                    color: 'blue'
-                });
-                
-                if (userData.subPosition === 'cmd') {
-                    // Defensive midfielder specific
-                    exercises.push({
-                        name: 'الاعتراض والضغط',
-                        description: 'قم بتمارين الضغط على الخصم واعتراض الكرات مع شريك. 4 مجموعات من 3 دقائق مع راحة 1 دقيقة.',
-                        duration: 15,
-                        reps: '4x3 دقائق',
-                        icon: 'fa-shield-alt',
-                        color: 'red'
-                    });
-                } else if (userData.subPosition === 'cma') {
-                    // Attacking midfielder specific
-                    exercises.push({
-                        name: 'المراوغة والإبداع',
-                        description: 'استخدم الأقماع لإنشاء مسار مراوغة. ركز على تغيير السرعة والاتجاه. 5 جولات مع تحسين الوقت في كل جولة.',
-                        duration: 15,
-                        reps: 5,
-                        icon: 'fa-magic',
-                        color: 'purple'
-                    });
-                } else {
-                    // Central midfielder
-                    exercises.push({
-                        name: 'التغطية المكانية',
-                        description: 'تدرب على التحرك لتغطية المساحات في الملعب. استخدم علامات لتحسين وعيك المكاني. 4 مجموعات من 5 دقائق.',
-                        duration: 20,
-                        reps: '4x5 دقائق',
-                        icon: 'fa-arrows-alt',
-                        color: 'yellow'
-                    });
-                }
-                
-                totalDurationMinutes = userData.subPosition === 'cmd' ? 65 : 70;
-                
-                // Position tips
-                let subPositionTip = '';
-                if (userData.subPosition === 'cmd') {
-                    subPositionTip = `
-                        <h4 class="font-bold mt-4 text-blue-600">نصائح إضافية للوسط الدفاعي:</h4>
-                        <ul class="list-disc mr-5 space-y-1">
-                            <li>طور قدرتك على قراءة اللعبة وتوقع تحركات الخصوم.</li>
-                            <li>اعمل على التمريرات الطويلة الدقيقة لكسر خطوط الضغط.</li>
-                            <li>تدرب على التغطية الذكية لزملائك في خط الدفاع.</li>
-                        </ul>
-                    `;
-                } else if (userData.subPosition === 'cma') {
-                    subPositionTip = `
-                        <h4 class="font-bold mt-4 text-blue-600">نصائح إضافية للوسط الهجومي:</h4>
-                        <ul class="list-disc mr-5 space-y-1">
-                            <li>طور رؤيتك الإبداعية وقدرتك على صناعة الفرص.</li>
-                            <li>تدرب على التحرك بدون كرة لخلق مساحات.</li>
-                            <li>اعمل على التسديد من خارج المنطقة.</li>
-                        </ul>
-                    `;
-                } else {
-                    subPositionTip = `
-                        <h4 class="font-bold mt-4 text-blue-600">نصائح إضافية للوسط المركزي:</h4>
-                        <ul class="list-disc mr-5 space-y-1">
-                            <li>كن محور اللعب وطور قدرتك على التحكم في إيقاع المباراة.</li>
-                            <li>اعمل على التوزيع المتوازن بين الدفاع والهجوم.</li>
-                            <li>طور قدرتك على استلام الكرة تحت الضغط.</li>
-                        </ul>
-                    `;
-                }
-                
-                positionTipsContent.innerHTML = `
-                    <h3 class="text-lg font-bold text-green-600 mb-2">نصائح لاعبي خط الوسط</h3>
-                    <ul class="list-disc mr-5 space-y-2">
-                        <li>طور لياقتك البدنية لتحمل متطلبات المركز الذي يتطلب الجري لمسافات طويلة.</li>
-                        <li>اعمل على تحسين اللمسة الأولى والتمريرات السريعة والدقيقة.</li>
-                        <li>طور وعيك المكاني وقدرتك على قراءة تطورات اللعب.</li>
-                        <li>تدرب على التحرك بدون كرة لخلق خيارات لزملائك.</li>
-                        <li>اعمل على التغطية الدفاعية عندما يفقد فريقك الكرة.</li>
-                    </ul>
-                    ${subPositionTip}
-                `;
-                
-            } else if (userData.position === 'defender') {
-                // Defender exercises
-                exercises.push({
-                    name: 'الركض الخلفي والجانبي',
-                    description: 'تدرب على الركض الخلفي والحركة الجانبية لمسافة 20 متر. كرر 10 مرات مع راحة 20 ثانية بين كل تكرار.',
-                    duration: 15,
-                    reps: 10,
-                    icon: 'fa-people-arrows',
-                    color: 'blue'
-                });
-                
-                exercises.push({
-                    name: 'اللعب الجوي',
-                    description: 'مع شريك، قم بتبادل الكرات العالية وتمريرها بالرأس. ركز على التوقيت والقوة. 50 تمريرة.',
-                    duration: 15,
-                    reps: 50,
-                    icon: 'fa-cloud',
-                    color: 'indigo'
-                });
-                
-                exercises.push({
-                    name: 'الدفاع 1 ضد 1',
-                    description: 'تدرب على مواقف الدفاع الفردي ضد مهاجم. ركز على وضعية الجسم وتأخير الهجوم. 8 جولات لكل جانب.',
-                    duration: 20,
-                    reps: '8x2',
-                    icon: 'fa-user-shield',
-                    color: 'red'
-                });
-                
-                totalDurationMinutes = 60;
-                
-                // Position tips
-                positionTipsContent.innerHTML = `
-                    <h3 class="text-lg font-bold text-blue-600 mb-2">نصائح للمدافعين</h3>
-                    <ul class="list-disc mr-5 space-y-2">
-                        <li>طور قوتك البدنية وقدرتك على المواجهة الجسدية.</li>
-                        <li>اعمل على تحسين مهاراتك في اللعب الجوي والدفاع بالرأس.</li>
-                        <li>تدرب على الحركة الجانبية والخلفية لتحسين قدرتك على التغطية.</li>
-                        <li>طور مهاراتك في القراءة المبكرة للهجمات.</li>
-                        <li>اعمل على التواصل مع زملائك في خط الدفاع لتنظيم الخط الخلفي.</li>
-                        <li>تدرب على التمرير الدقيق من خط الدفاع لبدء الهجمات.</li>
-                    </ul>
-                `;
-                
-            } else if (userData.position === 'goalkeeper') {
-                // Goalkeeper exercises
-                exercises.push({
-                    name: 'القفز الجانبي',
-                    description: 'قم بسلسلة من القفزات الجانبية السريعة بين نقطتين. ركز على القوة والانطلاق. 6 مجموعات من 30 ثانية مع راحة 30 ثانية.',
-                    duration: 10,
-                    reps: '6x30 ثانية',
-                    icon: 'fa-arrows-alt-h',
-                    color: 'purple'
-                });
-                
-                exercises.push({
-                    name: 'التغطية السريعة للزوايا',
-                    description: 'مع مساعد، قم بحراسة المرمى مع تسديدات متتالية إلى زوايا مختلفة. 50 تسديدة مع التركيز على التوقيت.',
-                    duration: 25,
-                    reps: 50,
-                    icon: 'fa-crosshairs',
-                    color: 'red'
-                });
-                
-                exercises.push({
-                    name: 'الخروج من المرمى',
-                    description: 'تدرب على الخروج السريع من المرمى لقطع الكرات العرضية. 15 محاولة مع تحسين التوقيت.',
-                    duration: 15,
-                    reps: 15,
-                    icon: 'fa-external-link-alt',
-                    color: 'yellow'
-                });
-                
-                totalDurationMinutes = 60;
-                
-                // Position tips
-                positionTipsContent.innerHTML = `
-                    <h3 class="text-lg font-bold text-purple-600 mb-2">نصائح لحراس المرمى</h3>
-                    <ul class="list-disc mr-5 space-y-2">
-                        <li>طور قوة انطلاقك وقدرتك على القفز لالتقاط الكرات العالية.</li>
-                        <li>اعمل على تحسين ردود أفعالك من خلال تمارين خاصة.</li>
-                        <li>تدرب على التغطية السريعة لزوايا المرمى المختلفة.</li>
-                        <li>طور مهاراتك في الخروج من المرمى لقطع الكرات العرضية.</li>
-                        <li>اعمل على التوزيع الدقيق للكرة سواء باليد أو القدم.</li>
-                        <li>طور مهارات التواصل لتنظيم خط الدفاع.</li>
-                    </ul>
-                `;
-            }
-            
-            // Cool down
-            exercises.push({
-                name: 'التهدئة والتمطيط',
-                description: 'قم بتمارين التهدئة والتمطيط لمدة 10 دقائق لمساعدة عضلاتك على الاسترخاء والتعافي.',
-                duration: 10,
-                reps: null,
-                icon: 'fa-wind',
-                color: 'gray'
-            });
-            
-            // Add cool down to total duration
-            totalDurationMinutes += 10;
-            
-            // Display total exercises and duration
-            totalExercises.textContent = exercises.length - 1; // Exclude cool down
-            totalDuration.textContent = `${totalDurationMinutes} دقيقة`;
-            
-            // Generate rest time recommendation based on age
-            let restTime = 8;
-            if (userData.age < 16) {
-                restTime = 9;
-                restTimeRecommendation.textContent = `يوصى بأخذ قسط من الراحة لمدة 9-10 ساعات يومياً نظراً لصغر سنك، مما يساعد على النمو والتعافي الأمثل.`;
-            } else if (userData.age >= 16 && userData.age < 20) {
-                restTime = 8;
-                restTimeRecommendation.textContent = `يوصى بأخذ قسط من الراحة لمدة 8-9 ساعات يومياً للحصول على أفضل نتائج التدريب والتعافي.`;
-            } else {
-                restTime = 7;
-                restTimeRecommendation.textContent = `يوصى بأخذ قسط من الراحة لمدة 7-8 ساعات يومياً مع قيلولة قصيرة إذا أمكن لتعزيز التعافي.`;
-            }
-            restTimeCard.classList.remove('hidden');
-            
-            // Generate best training time based on age
-            if (userData.age < 16) {
-                bestTimeRecommendation.textContent = `أفضل وقت للتدريب هو بعد المدرسة بين الساعة 4-6 مساءً عندما تكون لديك الطاقة الكافية.`;
-            } else if (userData.age >= 16 && userData.age < 20) {
-                bestTimeRecommendation.textContent = `أفضل وقت للتدريب هو بين الساعة 5-7 مساءً عندما تكون درجة حرارة الجسم في ذروتها والأداء في أفضل حالاته.`;
-            } else {
-                bestTimeRecommendation.textContent = `أفضل وقت للتدريب هو في الصباح بين 8-10 صباحاً أو في المساء بين 6-8 مساءً حسب جدولك اليومي.`;
-            }
-            bestTimeCard.classList.remove('hidden');
-            
-            // Display exercises
-            exercisesContainer.innerHTML = '';
-            exercises.forEach((exercise, index) => {
-                const exerciseCard = document.createElement('div');
-                exerciseCard.className = `exercise-card bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-${exercise.color}-500`;
-                
-                exerciseCard.innerHTML = `
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-${exercise.color}-100 text-${exercise.color}-600">
-                                <i class="fas ${exercise.icon} text-lg"></i>
-                            </div>
-                            <div class="mr-3">
-                                <h3 class="text-lg font-bold text-gray-800">${exercise.name}</h3>
-                                ${exercise.reps ? `<span class="inline-block bg-${exercise.color}-100 text-${exercise.color}-800 text-xs px-2 py-1 rounded-full">${exercise.reps} ${typeof exercise.reps === 'number' ? 'تكرار' : ''}</span>` : ''}
-                            </div>
-                        </div>
-                        <p class="text-gray-600 mb-4">${exercise.description}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm font-medium text-gray-500"><i class="far fa-clock mr-1"></i> ${exercise.duration} دقيقة</span>
-                            ${index !== 0 && index !== exercises.length - 1 ? `<span class="text-xs bg-${exercise.color}-50 text-${exercise.color}-700 px-2 py-1 rounded">${getIntensityBasedOnPosition(userData.position)}</span>` : ''}
-                        </div>
-                    </div>
-                `;
-                
-                exercisesContainer.appendChild(exerciseCard);
-            });
-        }
-        
-        // Helper function to get intensity based on position
-        function getIntensityBasedOnPosition(position) {
-            if (position === 'striker') return 'كثافة عالية';
-            if (position === 'midfielder') return 'كثافة متوسطة';
-            if (position === 'defender') return 'كثافة متوسطة';
-            if (position === 'goalkeeper') return 'كثافة متفاوتة';
-            return '';
-        }
-    </script>
-        <nav>
-      <a href="#main">الرئيسية</a>
-      <a href="#about">من نحن</a>
-      <a href="#contact">اتصل بنا</a>
-      <a href="#privacy">سياسة الخصوصية</a>
-    </nav>
-     </div>
-
- </div>
-
-    <!-- من نحن -->
-    <section id="about">
-      <h2>من نحن</h2>
-      <p>نحن فريق متخصص في تطوير تطبيقات ذكية للتمارين الرياضية موجهة للاعبي كرة القدم، نعتمد على الذكاء الاصطناعي لتقديم تمارين مخصصة حسب بياناتك الشخصية ومركزك في اللعب.</p>
-    </section>
-
-    <!-- اتصل بنا -->
-    <section id="contact">
-      <h2>اتصل بنا</h2>
-      <p>📧 البريد الإلكتروني: <a href="mailto:mhdehedr15@gmail.com">mhdehedr15@gmail.com</a></p>
-    </section>
-
-    <!-- سياسة الخصوصية -->
-    <section id="privacy">
-      <h2>سياسة الخصوصية</h2>
-      <p>نحترم خصوصيتك. لا يتم جمع أي معلومات حساسة أو بيعها لأي طرف ثالث. يتم استخدام البيانات فقط لغرض تحسين التمارين المقترحة.</p>
-    </section>
-
-  </div>
-       </div>
-
-    <!-- من نحن -->
-    <section id="about">
-      <h2>من نحن</h2>
-      <p>نحن فريق متخصص في تطوير تطبيقات ذكية للتمارين الرياضية موجهة للاعبي كرة القدم، نعتمد على الذكاء الاصطناعي لتقديم تمارين مخصصة حسب بياناتك الشخصية ومركزك في اللعب.</p>
-    </section>
-
-    <!-- اتصل بنا -->
-    <section id="contact">
-      <h2>اتصل بنا</h2>
-      <p>📧 البريد الإلكتروني: <a href="mailto:mhdehedr15@gmail.com">mhdehedr15@gmail.com</a></p>
-    </section>
-
-    <!-- سياسة الخصوصية -->
-    <section id="privacy">
-      <h2>سياسة الخصوصية</h2>
-      <p>نحترم خصوصيتك. لا يتم جمع أي معلومات حساسة أو بيعها لأي طرف ثالث. يتم استخدام البيانات فقط لغرض تحسين التمارين المقترحة.</p>
-    </section>
-
-  </div>
-      <section id="sports-article" class="bg-white rounded-xl shadow-md p-6 mt-8 mb-8">
-        <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">كيف تحسن من أدائك في كرة القدم: نصائح ذهبية لكل مركز</h2>
-        
-        <p class="text-gray-600 mb-4 leading-relaxed">
-            كرة القدم ليست مجرد ركض خلف الكرة، بل هي مزيج معقد من القوة البدنية، المهارة التقنية، والذكاء التكتيكي. سواء كنت مهاجمًا شرسًا، لاعب وسط مبدعًا، مدافعًا صلبًا، أو حارس مرمى يقظًا، فإن تطوير قدراتك يتطلب جهدًا مركزًا ومدروسًا.
-        </p>
-
-        <h3 class="text-lg font-bold text-gray-700 mb-2 mt-6">للمهاجمين:</h3>
-        <p class="text-gray-600 mb-4 leading-relaxed">
-            وظيفتك الأساسية هي هز الشباك، لكن هذا لا يأتي بالصدفة. لتحسين أدائك، ركز على <strong class="text-blue-600">سرعة الانطلاق</strong> وتغيير الاتجاهات المفاجئ للتخلص من المدافعين. تدرب باستمرار على <strong class="text-blue-600">التسديد من زوايا مختلفة</strong> وباستخدام كلتا القدمين لتصبح أكثر تنوعًا. لا تنسَ أهمية <strong class="text-blue-600">اللعب بالرأس</strong> وتوقيت القفز المثالي للسيطرة على الكرات العالية. الأهم من ذلك، طور <strong class="text-blue-600">حاسة التمركز</strong> لديك لتكون دائمًا في المكان المناسب والوقت المناسب.
-        </p>
-        
-        <h3 class="text-lg font-bold text-gray-700 mb-2 mt-6">للاعبي خط الوسط:</h3>
-        <p class="text-gray-600 mb-4 leading-relaxed">
-            أنت "عقل الفريق". لتحقيق التميز في هذا المركز، يجب أن تكون لاعبًا متكاملًا. اعمل على <strong class="text-blue-600">زيادة لياقتك البدنية</strong> وقدرتك على الجري لمسافات طويلة، لأنك ستغطي معظم مساحة الملعب. ركز على <strong class="text-blue-600">اللمسة الأولى السليمة</strong> والتمريرات السريعة والدقيقة، سواء كانت قصيرة أو طويلة. <strong class="text-blue-600">الوعي المكاني</strong> هو مفتاحك، حيث يساعدك على قراءة اللعب قبل أن يحدث واتخاذ القرار الصحيح في الوقت المناسب.
-        </p>
-
-        <h3 class="text-lg font-bold text-gray-700 mb-2 mt-6">للمدافعين:</h3>
-        <p class="text-gray-600 mb-4 leading-relaxed">
-            أنت الخط الأمامي للحارس وآخر أمل الفريق. لتحسين أدائك الدفاعي، يجب أن تكون <strong class="text-blue-600">قويًا بدنيًا</strong> في الالتحامات وتتقن <strong class="text-blue-600">التدخلات السليمة</strong> دون ارتكاب الأخطاء. تدرب على <strong class="text-blue-600">الحركة الجانبية والخلفية</strong> لتحسين قدرتك على التغطية. كما أن <strong class="text-blue-600">التواصل المستمر مع زملائك</strong> في خط الدفاع أمر حاسم لتنظيم الخط الخلفي وتجنب الثغرات. ولا تستهن بأهمية <strong class="text-blue-600">التمرير الدقيق</strong> من الخلف لبدء الهجمات المرتدة.
-        </p>
-
-        <h3 class="text-lg font-bold text-gray-700 mb-2 mt-6">لحراس المرمى:</h3>
-        <p class="text-gray-600 mb-4 leading-relaxed">
-            أنت حامي العرين. يتطلب هذا المركز تركيزًا عالياً وردود فعل سريعة. طور <strong class="text-blue-600">قوة انطلاقك وقدرتك على القفز</strong> للسيطرة على الكرات العالية. اعمل على <strong class="text-blue-600">تحسين سرعة ردود فعلك</strong> من خلال تمارين خاصة. الأهم هو <strong class="text-blue-600">توقيت الخروج من المرمى</strong> لقطع الكرات العرضية الخطيرة، بالإضافة إلى <strong class="text-blue-600">التوزيع الدقيق للكرة</strong> باليد أو القدم لبدء الهجمات السريعة.
-        </p>
-
-        <p class="text-gray-600 leading-relaxed italic mt-6 border-t pt-4">
-            تذكر دائمًا أن الموهبة وحدها لا تكفي، فالالتزام بالتدريب المستمر، والنوم الجيد، والتغذية السليمة هي الركائز الأساسية التي ستبني عليها نجاحك كلاعب كرة قدم.
-        </p>
-    </section>
-
-</body>
